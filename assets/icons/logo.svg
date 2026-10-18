@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="KUROZ4PH monogram">
+  <defs>
+    <linearGradient id="kz-edge" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#a078ff"/>
+      <stop offset="1" stop-color="#4cd7f6"/>
+    </linearGradient>
+  </defs>
+  <rect x="3" y="3" width="58" height="58" rx="14" fill="#0e0e11" stroke="url(#kz-edge)" stroke-width="2"/>
+  <g fill="none" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17 19v26M17 33l11-14M21.5 30l9 15" stroke="#d0bcff"/>
+    <path d="M35 19h12L35 45h12" stroke="#4cd7f6"/>
+  </g>
+</svg>
