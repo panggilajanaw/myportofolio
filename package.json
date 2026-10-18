@@ -1,0 +1,14 @@
+{
+  "name": "kuroz4ph-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static cinematic developer portfolio for KUROZ4PH. Tailwind is compiled to css/tailwind.css; the site itself needs no build to run.",
+  "scripts": {
+    "build:css": "tailwindcss -c tailwind.config.js -i src/tailwind.input.css -o css/tailwind.css --minify",
+    "watch:css": "tailwindcss -c tailwind.config.js -i src/tailwind.input.css -o css/tailwind.css --watch",
+    "start": "npx --yes serve . -l 5173"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
