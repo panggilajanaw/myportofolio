@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js dark" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>KUROZ4PH — Muhammad Nawal Fajar Riyadi | Frontend Developer</title>
+  <meta name="description" content="Portfolio of Muhammad Nawal Fajar Riyadi (KUROZ4PH), a frontend developer building responsive interfaces and creative web experiments. Founder of Deraclas Community.">
+  <meta name="author" content="Muhammad Nawal Fajar Riyadi">
+  <meta name="theme-color" content="#131317">
+  <meta name="color-scheme" content="dark light">
+
+  <!-- Open Graph / Twitter. Run `node tools/set-site-url.mjs https://your-domain` after deploying to make these absolute. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="KUROZ4PH">
+  <meta property="og:title" content="KUROZ4PH — Frontend Developer Portfolio">
+  <meta property="og:description" content="Building digital experiences beyond the ordinary. Responsive interfaces, creative frontend experiments and community tools by Muhammad Nawal Fajar Riyadi.">
+  <meta property="og:image" content="assets/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="KUROZ4PH — cinematic frontend developer portfolio">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="KUROZ4PH — Frontend Developer Portfolio">
+  <meta name="twitter:description" content="Building digital experiences beyond the ordinary.">
+  <meta name="twitter:image" content="assets/images/og-image.png">
+
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icons/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+
+  <!-- Runs before first paint: theme, saved language and whether the intro should play. No flash of the wrong theme. -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      function get(store, k) { try { return window[store].getItem(k); } catch (e) { return null; } }
+      d.classList.remove('no-js');
+      d.classList.add('js');
+      var theme = get('localStorage', 'kz-theme');
+      if (theme !== 'light' && theme !== 'dark') {
+        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      d.setAttribute('data-theme', theme);
+      d.classList.toggle('dark', theme === 'dark');
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', theme === 'light' ? '#fbf8ff' : '#131317');
+      var lang = get('localStorage', 'kz-lang');
+      if (lang === 'id' || lang === 'en') d.lang = lang;
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!get('sessionStorage', 'kz-intro-seen') && !reduce && !location.hash) d.classList.add('intro-active');
+      // Failsafe: if the app scripts never start, the intro must not trap the visitor.
+      setTimeout(function () {
+        if (!(window.KZ && window.KZ.ready)) d.classList.remove('intro-active');
+      }, 5000);
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap">
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Muhammad Nawal Fajar Riyadi",
+      "alternateName": "KUROZ4PH",
+      "jobTitle": "Frontend Developer",
+      "sameAs": [
+        "https://github.com/nawwtech",
+        "https://www.tiktok.com/@rainoneday",
+        "https://www.instagram.com/rainonedayy",
+        "https://t.me/kuroz4ph"
+      ]
+    }
+  </script>
+
+  <script defer src="js/core.js"></script>
+  <script defer src="js/i18n.js"></script>
+  <script defer src="js/projects.js"></script>
+  <script defer src="js/audio.js"></script>
+  <script defer src="js/fx.js"></script>
+  <script defer src="js/main.js"></script>
+</head>
+<body class="relative min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<symbol id="i-search" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><path d="m3.55 19.09 1.41 1.41 1.8-1.79-1.42-1.42M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6c0-3.32-2.69-6-6-6m8 7h3v-2h-3m-2.76 7.71 1.8 1.79 1.41-1.41-1.79-1.8M20.45 5l-1.41-1.4-1.8 1.79 1.42 1.42M13 1h-2v3h2M6.76 5.39 4.96 3.6 3.55 5l1.79 1.81zM1 13h3v-2H1m12 9h-2v3h2"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></symbol>
+<symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+<symbol id="i-instagram" viewBox="0 0 24 24"><path d="M7.03.084c-1.277.06-2.149.264-2.91.563a5.9 5.9 0 0 0-2.124 1.388 5.9 5.9 0 0 0-1.38 2.127C.321 4.926.12 5.8.064 7.076s-.069 1.688-.063 4.947.021 3.667.083 4.947c.061 1.277.264 2.149.563 2.911.308.789.72 1.457 1.388 2.123a5.9 5.9 0 0 0 2.129 1.38c.763.295 1.636.496 2.913.552 1.278.056 1.689.069 4.947.063s3.668-.021 4.947-.082c1.28-.06 2.147-.265 2.91-.563a5.9 5.9 0 0 0 2.123-1.388 5.9 5.9 0 0 0 1.38-2.129c.295-.763.496-1.636.551-2.912.056-1.28.07-1.69.063-4.948-.006-3.258-.02-3.667-.081-4.947-.06-1.28-.264-2.148-.564-2.911a5.9 5.9 0 0 0-1.387-2.123 5.86 5.86 0 0 0-2.128-1.38C19.074.322 18.202.12 16.924.066 15.647.009 15.236-.006 11.977 0S8.31.021 7.03.084m.14 21.693c-1.17-.05-1.805-.245-2.228-.408a3.7 3.7 0 0 1-1.382-.895 3.7 3.7 0 0 1-.9-1.378c-.165-.423-.363-1.058-.417-2.228-.06-1.264-.072-1.644-.08-4.848-.006-3.204.006-3.583.061-4.848.05-1.169.246-1.805.408-2.228.216-.561.477-.96.895-1.382a3.7 3.7 0 0 1 1.379-.9c.423-.165 1.057-.361 2.227-.417 1.265-.06 1.644-.072 4.848-.08 3.203-.006 3.583.006 4.85.062 1.168.05 1.804.244 2.227.408.56.216.96.475 1.382.895s.681.817.9 1.378c.165.422.362 1.056.417 2.227.06 1.265.074 1.645.08 4.848.005 3.203-.006 3.583-.061 4.848-.051 1.17-.245 1.805-.408 2.23-.216.56-.477.96-.896 1.38a3.7 3.7 0 0 1-1.378.9c-.422.165-1.058.362-2.226.418-1.266.06-1.645.072-4.85.079s-3.582-.006-4.848-.06m9.783-16.192a1.44 1.44 0 1 0 1.437-1.442 1.44 1.44 0 0 0-1.437 1.442M5.839 12.012a6.161 6.161 0 1 0 12.323-.024 6.162 6.162 0 0 0-12.323.024M8 12.008A4 4 0 1 1 12.008 16 4 4 0 0 1 8 12.008"/></symbol>
+<symbol id="i-telegram" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.5.5 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024q-.159.037-5.061 3.345-.72.495-1.302.48c-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789q.04-.324.893-.663 5.247-2.286 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635"/></symbol>
+<symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07"/></symbol>
+<symbol id="i-radar" viewBox="0 0 24 24"><path d="m19.07 4.93-1.41 1.41A8.01 8.01 0 0 1 20 12a8 8 0 0 1-8 8 8 8 0 0 1-8-8c0-4.08 3.05-7.44 7-7.93v2.02C8.16 6.57 6 9.03 6 12a6 6 0 0 0 6 6 6 6 0 0 0 6-6c0-1.66-.67-3.16-1.76-4.24l-1.41 1.41C15.55 9.9 16 10.9 16 12a4 4 0 0 1-4 4 4 4 0 0 1-4-4c0-1.86 1.28-3.41 3-3.86v2.14c-.6.35-1 .98-1 1.72a2 2 0 0 0 2 2 2 2 0 0 0 2-2c0-.74-.4-1.38-1-1.72V2h-1A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10c0-2.76-1.12-5.26-2.93-7.07"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></symbol>
+<symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></symbol>
+<symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M5 17.59 15.59 7H9V5h10v10h-2V8.41L6.41 19z"/></symbol>
+<symbol id="i-external" viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2z"/></symbol>
+<symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M7.41 8.58 12 13.17l4.59-4.59L18 10l-6 6-6-6z"/></symbol>
+<symbol id="i-chevron-up" viewBox="0 0 24 24"><path d="M7.41 15.41 12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.14v14l11-7z"/></symbol>
+<symbol id="i-pause" viewBox="0 0 24 24"><path d="M14 19h4V5h-4M6 19h4V5H6z"/></symbol>
+<symbol id="i-prev" viewBox="0 0 24 24"><path d="M6 18V6h2v12zm3.5-6L18 6v12z"/></symbol>
+<symbol id="i-next" viewBox="0 0 24 24"><path d="M16 18h2V6h-2M6 18l8.5-6L6 6z"/></symbol>
+<symbol id="i-volume" viewBox="0 0 24 24"><path d="M14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.84-5 6.7v2.07c4-.91 7-4.49 7-8.77s-3-7.86-7-8.77M16.5 12c0-1.77-1-3.29-2.5-4.03V16c1.5-.71 2.5-2.24 2.5-4M3 9v6h4l5 5V4L7 9z"/></symbol>
+<symbol id="i-volume-off" viewBox="0 0 24 24"><path d="M12 4 9.91 6.09 12 8.18M4.27 3 3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.26c-.67.51-1.42.93-2.25 1.17v2.07c1.38-.32 2.63-.95 3.68-1.81L19.73 21 21 19.73l-9-9M19 12c0 .94-.2 1.82-.54 2.64l1.51 1.51A8.9 8.9 0 0 0 21 12c0-4.28-3-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71m-2.5 0c0-1.77-1-3.29-2.5-4.03v2.21l2.45 2.45c.05-.2.05-.42.05-.63"/></symbol>
+<symbol id="i-music" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3z"/></symbol>
+<symbol id="i-music-off" viewBox="0 0 24 24"><path d="M2 5.27 3.28 4 20 20.72 18.73 22 9 12.27v5.23A3.5 3.5 0 0 1 5.5 21 3.5 3.5 0 0 1 2 17.5 3.5 3.5 0 0 1 5.5 14c.54 0 1.05.12 1.5.34v-4.07zM21 3v12.5c0 1-.43 1.92-1.12 2.56l-4.94-4.94c.64-.69 1.56-1.12 2.56-1.12.54 0 1.05.12 1.5.34V6.47l-8.83 1.88-2.51-2.51z"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></symbol>
+<symbol id="i-code" viewBox="0 0 24 24"><path d="m14.6 16.6 4.6-4.6-4.6-4.6L16 6l6 6-6 6zm-5.2 0L4.8 12l4.6-4.6L8 6l-6 6 6 6z"/></symbol>
+<symbol id="i-terminal" viewBox="0 0 24 24"><path d="M20 19V7H4v12zm0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-7 14v-2h5v2zm-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59z"/></symbol>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="m12 5.69 5 4.5V18h-2v-6H9v6H7v-7.81zM12 3 2 12h3v8h6v-6h2v6h6v-8h3"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 2a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2m0 7c2.67 0 8 1.33 8 4v3H4v-3c0-2.67 5.33-4 8-4m0 1.9c-2.97 0-6.1 1.46-6.1 2.1v1.1h12.2V17c0-.64-3.13-2.1-6.1-2.1"/></symbol>
+<symbol id="i-skills" viewBox="0 0 24 24"><path d="M11 15H6l7-14v8h5l-7 14z"/></symbol>
+<symbol id="i-projects" viewBox="0 0 24 24"><path d="M3 11h8V3H3m2 2h4v4H5m8 12h8v-8h-8m2 2h4v4h-4M3 21h8v-8H3m2 2h4v4H5m8-16v8h8V3m-2 6h-4V5h4Z"/></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><path d="M10.59 13.41c.41.39.41 1.03 0 1.42-.39.39-1.03.39-1.42 0a5.003 5.003 0 0 1 0-7.07l3.54-3.54a5.003 5.003 0 0 1 7.07 0 5.003 5.003 0 0 1 0 7.07l-1.49 1.49c.01-.82-.12-1.64-.4-2.42l.47-.48a2.98 2.98 0 0 0 0-4.24 2.98 2.98 0 0 0-4.24 0l-3.53 3.53a2.98 2.98 0 0 0 0 4.24m2.82-4.24c.39-.39 1.03-.39 1.42 0a5.003 5.003 0 0 1 0 7.07l-3.54 3.54a5.003 5.003 0 0 1-7.07 0 5.003 5.003 0 0 1 0-7.07l1.49-1.49c-.01.82.12 1.64.4 2.43l-.47.47a2.98 2.98 0 0 0 0 4.24 2.98 2.98 0 0 0 4.24 0l3.53-3.53a2.98 2.98 0 0 0 0-4.24.973.973 0 0 1 0-1.42"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2zm-2 0-8 5-8-5zm0 12H4V8l8 5 8-5z"/></symbol>
+<symbol id="i-loading" viewBox="0 0 24 24"><path d="M12 4V2A10 10 0 0 0 2 12h2a8 8 0 0 1 8-8"/></symbol>
+<symbol id="i-alert" viewBox="0 0 24 24"><path d="M11 15h2v2h-2zm0-8h2v6h-2zm1-5C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 18a8 8 0 0 1-8-8 8 8 0 0 1 8-8 8 8 0 0 1 8 8 8 8 0 0 1-8 8"/></symbol>
+<symbol id="i-translate" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></symbol>
+<symbol id="i-replay" viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7a6 6 0 0 1 6 6 6 6 0 0 1-6 6 6 6 0 0 1-6-6H4a8 8 0 0 0 8 8 8 8 0 0 0 8-8 8 8 0 0 0-8-8"/></symbol>
+<symbol id="i-mouse" viewBox="0 0 24 24"><path d="M11 1.07C7.05 1.56 4 4.92 4 9h7m-7 6a8 8 0 0 0 8 8 8 8 0 0 0 8-8v-4H4m9-9.93V9h7c0-4.08-3.06-7.44-7-7.93"/></symbol>
+<symbol id="i-tune" viewBox="0 0 24 24"><path d="M8 13c-1.86 0-3.41 1.28-3.86 3H2v2h2.14c.45 1.72 2 3 3.86 3s3.41-1.28 3.86-3H22v-2H11.86c-.45-1.72-2-3-3.86-3m0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2M19.86 6c-.45-1.72-2-3-3.86-3s-3.41 1.28-3.86 3H2v2h10.14c.45 1.72 2 3 3.86 3s3.41-1.28 3.86-3H22V6zM16 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2"/></symbol>
+<symbol id="i-cube" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></symbol>
+<symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 22A10 10 0 0 1 2 12 10 10 0 0 1 12 2c5.5 0 10 4 10 9a6 6 0 0 1-6 6h-1.8c-.3 0-.5.2-.5.5 0 .1.1.2.1.3.4.5.6 1.1.6 1.7.1 1.4-1 2.5-2.4 2.5m0-18a8 8 0 0 0-8 8 8 8 0 0 0 8 8c.3 0 .5-.2.5-.5 0-.2-.1-.3-.1-.4-.4-.5-.6-1-.6-1.6 0-1.4 1.1-2.5 2.5-2.5H16a4 4 0 0 0 4-4c0-3.9-3.6-7-8-7m-5.5 6c.8 0 1.5.7 1.5 1.5S7.3 13 6.5 13 5 12.3 5 11.5 5.7 10 6.5 10m3-4c.8 0 1.5.7 1.5 1.5S10.3 9 9.5 9 8 8.3 8 7.5 8.7 6 9.5 6m5 0c.8 0 1.5.7 1.5 1.5S15.3 9 14.5 9 13 8.3 13 7.5 13.7 6 14.5 6m3 4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5"/></symbol>
+<symbol id="i-braces" viewBox="0 0 24 24"><path d="M8 3a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2H3v2h1a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h2v-2H8v-5a2 2 0 0 0-2-2 2 2 0 0 0 2-2V5h2V3m6 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3z"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 18.54 7.37-5.74L21 14.07l-9 7-9-7 1.62-1.26zM12 16 3 9l9-7 9 7zm0-11.47L6.26 9 12 13.47 17.74 9z"/></symbol>
+<symbol id="i-cursor" viewBox="0 0 24 24"><path d="M10.76 8.69a.76.76 0 0 0-.76.76V20.9c0 .42.34.76.76.76.19 0 .35-.06.48-.16l1.91-1.55 1.66 3.62c.13.27.4.43.69.43.11 0 .22 0 .33-.08l2.76-1.28c.38-.18.56-.64.36-1.01L17.28 18l2.41-.45a.9.9 0 0 0 .43-.26c.27-.32.23-.79-.12-1.08l-8.74-7.35-.01.01a.76.76 0 0 0-.49-.18M15 10V8h5v2zm-1.17-5.24 2.83-2.83 1.41 1.41-2.83 2.83zM10 0h2v5h-2zM3.93 14.66l2.83-2.83 1.41 1.41-2.83 2.83zm0-11.32 1.41-1.41 2.83 2.83-1.41 1.41zM7 10H2V8h5z"/></symbol>
+<symbol id="i-hammer" viewBox="0 0 24 24"><path d="m13.78 15.3 6 6 2.11-2.16-6-6zm3.72-5.2c-.39 0-.81-.05-1.14-.19L4.97 21.25l-2.11-2.11 7.41-7.4L8.5 9.96l-.72.7-1.45-1.41v2.86l-.7.7-3.52-3.56.7-.7h2.81l-1.4-1.41 3.56-3.56a2.976 2.976 0 0 1 4.22 0L9.89 5.74l1.41 1.4-.71.71 1.79 1.78 1.82-1.88c-.14-.33-.2-.75-.2-1.12a3.49 3.49 0 0 1 3.5-3.52c.59 0 1.11.14 1.58.42L16.41 6.2l1.5 1.5 2.67-2.67c.28.47.42.97.42 1.6 0 1.92-1.55 3.47-3.5 3.47"/></symbol>
+<symbol id="i-group" viewBox="0 0 24 24"><path d="M12 5a3.5 3.5 0 0 0-3.5 3.5A3.5 3.5 0 0 0 12 12a3.5 3.5 0 0 0 3.5-3.5A3.5 3.5 0 0 0 12 5m0 2a1.5 1.5 0 0 1 1.5 1.5A1.5 1.5 0 0 1 12 10a1.5 1.5 0 0 1-1.5-1.5A1.5 1.5 0 0 1 12 7M5.5 8A2.5 2.5 0 0 0 3 10.5c0 .94.53 1.75 1.29 2.18.36.2.77.32 1.21.32s.85-.12 1.21-.32c.37-.21.68-.51.91-.87A5.42 5.42 0 0 1 6.5 8.5v-.28c-.3-.14-.64-.22-1-.22m13 0c-.36 0-.7.08-1 .22v.28c0 1.2-.39 2.36-1.12 3.31.12.19.25.34.4.49a2.482 2.482 0 0 0 1.72.7c.44 0 .85-.12 1.21-.32.76-.43 1.29-1.24 1.29-2.18A2.5 2.5 0 0 0 18.5 8M12 14c-2.34 0-7 1.17-7 3.5V19h14v-1.5c0-2.33-4.66-3.5-7-3.5m-7.29.55C2.78 14.78 0 15.76 0 17.5V19h3v-1.93c0-1.01.69-1.85 1.71-2.52m14.58 0c1.02.67 1.71 1.51 1.71 2.52V19h3v-1.5c0-1.74-2.78-2.72-4.71-2.95M12 16c1.53 0 3.24.5 4.23 1H7.77c.99-.5 2.7-1 4.23-1"/></symbol>
+<symbol id="i-message" viewBox="0 0 24 24"><path d="M20 2a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2zM4 4v13.17L5.17 16H20V4zm2 3h12v2H6zm0 4h9v2H6z"/></symbol>
+</svg>
+
+<a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
+
+<!-- ================================================================ INTRO -->
+<div id="intro" role="dialog" aria-modal="true" aria-label="Introduction" data-i18n-attr="aria-label:intro.aria">
+  <canvas id="intro-canvas" aria-hidden="true"></canvas>
+  <div class="intro-vignette" aria-hidden="true"></div>
+  <div class="intro-hud" aria-hidden="true">
+    <span>JKT // 06°12'S 106°49'E</span>
+    <span id="intro-clock">UTC+7</span>
+  </div>
+  <div class="intro-stage">
+    <p class="intro-word"><span class="sr-only">KUROZ4PH</span><span class="ch" style="--i:0" aria-hidden="true">K</span><span class="ch" style="--i:1" aria-hidden="true">U</span><span class="ch" style="--i:2" aria-hidden="true">R</span><span class="ch" style="--i:3" aria-hidden="true">O</span><span class="ch acc" style="--i:4" aria-hidden="true">Z</span><span class="ch acc" style="--i:5" aria-hidden="true">4</span><span class="ch" style="--i:6" aria-hidden="true">P</span><span class="ch" style="--i:7" aria-hidden="true">H</span></p>
+    <span class="intro-rule" aria-hidden="true"></span>
+    <p class="intro-tag" data-i18n="intro.tag">Cinematic frontend portfolio</p>
+    <ul class="intro-steps" id="intro-steps">
+      <li data-step="ui" data-state="pending"><span data-i18n="intro.step.ui">Interface</span><span class="st" data-i18n="intro.st.wait">Loading</span></li>
+      <li data-step="fonts" data-state="pending"><span data-i18n="intro.step.fonts">Typography</span><span class="st" data-i18n="intro.st.wait">Loading</span></li>
+      <li data-step="data" data-state="pending"><span data-i18n="intro.step.data">Project data</span><span class="st" data-i18n="intro.st.wait">Loading</span></li>
+      <li data-step="audio" data-state="pending"><span data-i18n="intro.step.audio">Audio engine</span><span class="st" data-i18n="intro.st.wait">Loading</span></li>
+    </ul>
+  </div>
+  <div class="intro-bar" aria-hidden="true"><i id="intro-progress"></i></div>
+  <button type="button" class="intro-skip" id="intro-skip"><span data-i18n="intro.skip">Skip intro</span><kbd>Esc</kbd></button>
+</div>
+
+<!-- ================================================================ HEADER -->
+<header id="site-header" class="fixed inset-x-0 top-0 z-50 bg-surface/85 backdrop-blur-xl">
+  <div class="mx-auto flex h-16 w-full max-w-[1440px] items-center justify-between gap-space-sm px-3 sm:px-margin-sm lg:px-margin-lg">
+    <div class="flex min-w-0 items-center gap-space-md">
+      <a href="#home" class="flex min-w-0 items-center gap-space-sm rounded">
+        <img src="assets/icons/logo.svg" alt="" width="32" height="32" class="h-8 w-8 flex-none">
+        <span class="flex min-w-0 flex-col">
+          <span class="flex items-center gap-space-xs">
+            <span class="hidden font-label-tech text-label-tech uppercase tracking-wider text-on-surface min-[360px]:inline">KUROZ4PH</span>
+            <span class="sr-only min-[360px]:hidden">KUROZ4PH</span>
+            <span class="hidden rounded bg-surface-container-high px-space-xs py-0.5 font-label-caps text-label-caps text-secondary sm:inline">v2.6</span>
+          </span>
+          <span class="hidden truncate font-body-sm text-body-sm text-on-surface-variant sm:inline">Muhammad Nawal Fajar Riyadi</span>
+        </span>
+      </a>
+      <div class="hidden items-center rounded bg-surface-container-low px-space-sm py-1 2xl:flex">
+        <span class="font-label-caps text-label-caps uppercase text-tertiary" data-i18n="hdr.founder">Founder @ Deraclas Community</span>
+      </div>
+    </div>
+
+    <div class="hidden items-center gap-space-lg lg:flex">
+      <div class="flex items-center gap-space-xs font-label-tech text-label-tech text-on-surface-variant">
+        <svg class="icon h-4 w-4 text-secondary" aria-hidden="true"><use href="#i-radar"/></svg>
+        <span>JKT // 06°12'S 106°49'E</span>
+      </div>
+      <div class="hidden items-center gap-space-xs rounded bg-surface-container-low px-space-sm py-1 xl:flex">
+        <span class="h-2 w-2 animate-pulse rounded-full bg-secondary" aria-hidden="true"></span>
+        <span class="font-label-tech text-label-tech text-on-surface" data-i18n="hdr.available">Available for Creative Frontend &amp; WebGL</span>
+      </div>
+    </div>
+
+    <div class="flex flex-none items-center gap-space-xs sm:gap-space-sm">
+      <button type="button" id="palette-open" class="flex h-10 items-center justify-center gap-space-xs rounded bg-surface-container-high px-2.5 font-label-tech text-label-tech text-on-surface-variant transition-colors hover:bg-surface-variant hover:text-on-surface needs-js" aria-haspopup="dialog" aria-label="Open command palette" data-i18n-attr="aria-label:hdr.palette">
+        <svg class="icon h-5 w-5 lg:h-4 lg:w-4" aria-hidden="true"><use href="#i-search"/></svg>
+        <span class="hidden lg:inline" id="palette-hint" aria-hidden="true">Ctrl K</span>
+      </button>
+      <div class="flex items-center rounded bg-surface-container-high p-0.5 needs-js" role="group" aria-label="Language" data-i18n-attr="aria-label:hdr.lang">
+        <button type="button" class="lang-btn h-9 min-w-[2.25rem] rounded px-space-xs font-label-caps text-label-caps text-on-surface-variant transition-colors hover:text-on-surface" data-lang="en" aria-pressed="true" lang="en">EN</button>
+        <button type="button" class="lang-btn h-9 min-w-[2.25rem] rounded px-space-xs font-label-caps text-label-caps text-on-surface-variant transition-colors hover:text-on-surface" data-lang="id" aria-pressed="false" lang="id">ID</button>
+      </div>
+      <button type="button" id="theme-toggle" class="icon-btn h-10 w-10 needs-js" aria-pressed="true" aria-label="Dark mode" title="Switch to light mode" data-i18n-attr="aria-label:hdr.theme">
+        <svg class="icon h-5 w-5" aria-hidden="true"><use id="theme-icon" href="#i-moon"/></svg>
+      </button>
+      <a href="https://github.com/nawwtech" target="_blank" rel="noopener noreferrer" class="hidden h-10 w-10 items-center justify-center rounded-pill bg-primary text-on-primary transition-colors hover:bg-primary-container hover:text-on-primary-container min-[480px]:flex" aria-label="GitHub profile (opens in a new tab)" data-i18n-attr="aria-label:hdr.github">
+        <svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-github"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1" class="w-full">
+
+  <!-- ============================================================ HOME -->
+  <section id="home" aria-labelledby="hero-title" class="relative isolate flex min-h-[100svh] items-center overflow-hidden pb-32 pt-24">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="wrap relative grid items-center gap-space-xl lg:grid-cols-12 lg:gap-gutter-lg">
+      <div class="flex flex-col gap-space-lg lg:col-span-7">
+        <div class="flex flex-wrap items-center gap-space-sm" data-enter>
+          <span class="kicker" data-i18n="hero.kicker">01 // HOME</span>
+          <span class="h-1.5 w-1.5 animate-ping rounded-full bg-secondary" aria-hidden="true"></span>
+          <span class="font-label-tech text-label-tech text-outline" data-i18n="hero.eyebrow">Frontend Developer // Jakarta</span>
+        </div>
+        <h1 id="hero-title" class="hero-title text-on-surface" data-enter style="--d:60ms">
+          <span data-i18n="hero.title.1">Building Digital</span>
+          <span class="grad-text" data-i18n="hero.title.2">Experiences</span>
+          <span data-i18n="hero.title.3">Beyond the Ordinary.</span>
+        </h1>
+        <p class="lead max-w-xl" data-enter style="--d:120ms" data-i18n="hero.lead">I'm Muhammad Nawal Fajar Riyadi, building under the name KUROZ4PH. I craft responsive interfaces and creative web experiences with HTML, CSS and JavaScript, with a soft spot for details that move.</p>
+        <div class="flex flex-col gap-space-sm sm:flex-row" data-enter style="--d:180ms">
+          <a href="#projects" class="btn btn-primary shadow-lg" data-magnetic>
+            <span data-i18n="hero.cta.projects">Explore Projects</span>
+            <svg class="icon h-[18px] w-[18px]" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </a>
+          <a href="#contact" class="btn btn-ghost" data-magnetic>
+            <span data-i18n="hero.cta.contact">Contact Me</span>
+            <svg class="icon h-[18px] w-[18px]" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5" data-enter style="--d:240ms">
+        <div class="hud panel p-space-lg shadow-xl lg:p-space-xl" id="hero-hud">
+          <span class="hud-corners" aria-hidden="true"></span>
+          <div class="flex items-center justify-between gap-space-sm">
+            <span class="kicker text-tertiary" data-i18n="hud.title">Operator profile</span>
+            <span class="flex items-center gap-1.5 font-label-tech text-label-tech text-outline"><span class="h-2 w-2 animate-pulse rounded-full bg-secondary" aria-hidden="true"></span>KUROZ4PH</span>
+          </div>
+          <dl class="mt-space-md grid gap-space-sm">
+            <div class="flex items-baseline justify-between gap-space-md border-b border-outline-variant/40 pb-space-sm">
+              <dt class="font-label-caps text-label-caps uppercase text-outline" data-i18n="hud.name">Name</dt>
+              <dd class="text-right font-body-md text-body-md text-on-surface">Muhammad Nawal Fajar Riyadi</dd>
+            </div>
+            <div class="flex items-baseline justify-between gap-space-md border-b border-outline-variant/40 pb-space-sm">
+              <dt class="font-label-caps text-label-caps uppercase text-outline" data-i18n="hud.role">Role</dt>
+              <dd class="text-right font-body-md text-body-md text-on-surface" data-i18n="hud.role.v">Frontend Developer</dd>
+            </div>
+            <div class="flex items-baseline justify-between gap-space-md border-b border-outline-variant/40 pb-space-sm">
+              <dt class="font-label-caps text-label-caps uppercase text-outline" data-i18n="hud.community">Community</dt>
+              <dd class="text-right font-body-md text-body-md text-on-surface" data-i18n="hud.community.v">Founder, Deraclas Community</dd>
+            </div>
+            <div class="flex items-baseline justify-between gap-space-md border-b border-outline-variant/40 pb-space-sm">
+              <dt class="font-label-caps text-label-caps uppercase text-outline" data-i18n="hud.base">Base</dt>
+              <dd class="text-right font-body-md text-body-md text-on-surface">Jakarta, ID</dd>
+            </div>
+            <div class="flex items-baseline justify-between gap-space-md">
+              <dt class="font-label-caps text-label-caps uppercase text-outline" data-i18n="hud.time">Local time</dt>
+              <dd class="text-right font-label-tech text-label-tech tabular-nums text-secondary"><span id="hero-time">UTC+7</span></dd>
+            </div>
+          </dl>
+          <div class="mt-space-lg flex flex-wrap gap-1.5">
+            <span class="chip" data-i18n="hud.f1">Interactive UI</span>
+            <span class="chip" data-i18n="hud.f2">Responsive sites</span>
+            <span class="chip text-secondary" data-i18n="hud.f3">Creative frontend</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#about" class="scroll-cue absolute bottom-24 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-space-xs rounded font-label-caps text-label-caps uppercase text-outline transition-colors hover:text-on-surface sm:flex md:bottom-28">
+      <span data-i18n="hero.scroll">Scroll</span>
+      <span class="cue-line" aria-hidden="true"></span>
+    </a>
+  </section>
+
+  <!-- ============================================================ ABOUT -->
+  <section id="about" aria-labelledby="about-title" class="relative py-space-xl lg:py-24">
+    <div class="wrap grid gap-space-xl lg:grid-cols-12 lg:gap-gutter-lg">
+      <div class="flex flex-col gap-space-md lg:col-span-7" data-reveal>
+        <span class="kicker" data-i18n="about.kicker">02 // ABOUT</span>
+        <h2 id="about-title" class="section-title" data-i18n="about.title">Frontend developer with a taste for interactive details.</h2>
+        <p class="lead" data-i18n="about.p1">I'm Muhammad Nawal Fajar Riyadi, a frontend developer who works under the name KUROZ4PH. I enjoy turning ideas into interfaces people can explore: responsive websites, creative frontend experiments and digital tools.</p>
+        <p class="font-body-md text-body-md text-on-surface-variant" data-i18n="about.p2">I'm the founder of Deraclas Community, and several of the projects below were built for it. I like to keep things hands-on: build it, try a new technique, then refine it.</p>
+      </div>
+      <div class="lg:col-span-5" data-reveal style="--d:100ms">
+        <h3 class="mb-space-sm font-label-caps text-label-caps uppercase tracking-widest text-outline" data-i18n="about.focus">Focus areas</h3>
+        <ul class="grid gap-space-sm sm:grid-cols-2">
+          <li class="panel flex flex-col gap-space-sm p-space-md">
+            <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-surface-container-high text-primary"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-cursor"/></svg></span>
+            <span class="font-headline-sm text-headline-sm text-on-surface" data-i18n="about.f1.t">Interactive interfaces</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant" data-i18n="about.f1.d">UI that responds to the person using it, with motion, feedback and thoughtful states.</span>
+          </li>
+          <li class="panel flex flex-col gap-space-sm p-space-md">
+            <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-surface-container-high text-secondary"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-layers"/></svg></span>
+            <span class="font-headline-sm text-headline-sm text-on-surface" data-i18n="about.f2.t">Responsive websites</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant" data-i18n="about.f2.d">Layouts that hold up from small Android screens to large desktop displays.</span>
+          </li>
+          <li class="panel flex flex-col gap-space-sm p-space-md">
+            <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-surface-container-high text-tertiary"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-palette"/></svg></span>
+            <span class="font-headline-sm text-headline-sm text-on-surface" data-i18n="about.f3.t">Creative experiments</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant" data-i18n="about.f3.d">Canvas, animation and shader-flavoured ideas explored in small prototypes.</span>
+          </li>
+          <li class="panel flex flex-col gap-space-sm p-space-md">
+            <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-surface-container-high text-primary"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-terminal"/></svg></span>
+            <span class="font-headline-sm text-headline-sm text-on-surface" data-i18n="about.f4.t">Digital tools</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant" data-i18n="about.f4.d">Practical web apps and community utilities, from catalogs to bots.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ SKILLS -->
+  <section id="skills" aria-labelledby="skills-title" class="relative py-space-xl lg:py-24">
+    <div class="wrap flex flex-col gap-space-xl">
+      <div class="flex max-w-2xl flex-col gap-space-md" data-reveal>
+        <span class="kicker" data-i18n="skills.kicker">03 // SKILLS</span>
+        <h2 id="skills-title" class="section-title" data-i18n="skills.title">Tools I work with</h2>
+        <p class="lead" data-i18n="skills.lead">Skill labels grouped by area: a snapshot of what I use, not a list of certifications.</p>
+      </div>
+      <ul class="grid gap-space-md sm:grid-cols-2 lg:grid-cols-4">
+        <li class="panel flex flex-col gap-space-md p-space-lg" data-reveal>
+          <div class="flex items-center gap-space-sm"><span class="flex h-10 w-10 items-center justify-center rounded-lg bg-surface-container-high text-primary"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-braces"/></svg></span><h3 class="font-headline-sm text-headline-sm text-on-surface" data-i18n="skills.c1">Frontend</h3></div>
+          <ul class="flex flex-wrap gap-1.5"><li class="chip">HTML</li><li class="chip">CSS</li><li class="chip">JavaScript</li><li class="chip">React</li></ul>
+        </li>
+        <li class="panel flex flex-col gap-space-md p-space-lg" data-reveal style="--d:70ms">
+          <div class="flex items-center gap-space-sm"><span class="flex h-10 w-10 items-center justify-center rounded-lg bg-surface-container-high text-secondary"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-palette"/></svg></span><h3 class="font-headline-sm text-headline-sm text-on-surface" data-i18n="skills.c2">Styling</h3></div>
+          <ul class="flex flex-wrap gap-1.5"><li class="chip">Tailwind CSS</li><li class="chip" data-i18n="skills.s.responsive">Responsive UI design</li></ul>
+        </li>
+        <li class="panel flex flex-col gap-space-md p-space-lg" data-reveal style="--d:140ms">
+          <div class="flex items-center gap-space-sm"><span class="flex h-10 w-10 items-center justify-center rounded-lg bg-surface-container-high text-tertiary"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-cube"/></svg></span><h3 class="font-headline-sm text-headline-sm text-on-surface" data-i18n="skills.c3">Creative development</h3></div>
+          <ul class="flex flex-wrap gap-1.5"><li class="chip">Canvas</li><li class="chip" data-i18n="skills.s.animation">Animation</li><li class="chip">WebGL / GLSL</li></ul>
+        </li>
+        <li class="panel flex flex-col gap-space-md p-space-lg" data-reveal style="--d:210ms">
+          <div class="flex items-center gap-space-sm"><span class="flex h-10 w-10 items-center justify-center rounded-lg bg-surface-container-high text-primary"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-hammer"/></svg></span><h3 class="font-headline-sm text-headline-sm text-on-surface" data-i18n="skills.c4">Tools &amp; platforms</h3></div>
+          <ul class="flex flex-wrap gap-1.5"><li class="chip">Git</li><li class="chip">GitHub</li><li class="chip">Vercel</li><li class="chip">Node.js</li></ul>
+        </li>
+      </ul>
+      <p class="font-body-sm text-body-sm text-outline" data-i18n="skills.note">WebGL / GLSL is used where a project calls for it.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ PROJECTS -->
+  <section id="projects" aria-labelledby="projects-title" class="relative py-space-xl lg:py-24">
+    <div class="wrap flex flex-col gap-space-xl">
+      <header class="flex flex-col gap-space-lg">
+        <div class="flex flex-col justify-between gap-space-md md:flex-row md:items-end">
+          <div class="flex max-w-2xl flex-col gap-space-xs" data-reveal>
+            <div class="flex flex-wrap items-center gap-space-sm">
+              <span class="kicker" data-i18n="projects.kicker">04 // ARCHIVE &amp; DEPLOYMENTS</span>
+              <span class="h-1.5 w-1.5 animate-ping rounded-full bg-secondary" aria-hidden="true"></span>
+              <span class="font-label-tech text-label-tech text-outline" id="projects-index">SYS.INDEX // 05 ENTRIES</span>
+            </div>
+            <h2 id="projects-title" class="section-title" data-i18n="projects.title">Curated Works &amp; Digital Experiments</h2>
+            <p class="lead" data-i18n="projects.lead">Production applications, creative frontend systems, and community tools engineered with relentless technical precision and cinematic immersion.</p>
+          </div>
+          <dl class="flex items-center gap-space-md self-start rounded-xl bg-surface-container-low p-space-sm shadow-md md:self-auto" data-reveal style="--d:80ms">
+            <div class="flex flex-col px-space-xs">
+              <dt class="font-label-caps text-label-caps uppercase text-outline" data-i18n="projects.stat.total">Projects</dt>
+              <dd class="font-headline-sm text-headline-sm text-primary" id="stat-total">5</dd>
+            </div>
+            <div class="h-8 w-px bg-surface-variant" aria-hidden="true"></div>
+            <div class="flex flex-col px-space-xs">
+              <dt class="font-label-caps text-label-caps uppercase text-outline" data-i18n="projects.stat.demos">Public demos</dt>
+              <dd class="font-headline-sm text-headline-sm text-secondary" id="stat-demos">0 / 5</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="needs-js flex flex-wrap items-center justify-between gap-space-md rounded-xl bg-surface-container-lowest/80 p-space-xs shadow-sm ring-1 ring-outline-variant/[var(--ring-a)]">
+          <div class="flex flex-wrap items-center gap-1" id="project-filters" role="group" aria-label="Project categories" data-i18n-attr="aria-label:projects.filters"></div>
+          <div class="hidden items-center gap-space-sm px-space-sm font-label-caps text-label-caps uppercase text-outline sm:flex">
+            <svg class="icon h-4 w-4 text-tertiary" aria-hidden="true"><use href="#i-tune"/></svg>
+            <span data-i18n="projects.sort">Sorted By: Release Matrix</span>
+          </div>
+        </div>
+        <p class="sr-only" role="status" aria-live="polite" id="projects-status"></p>
+      </header>
+
+      <div class="grid grid-cols-1 items-stretch gap-space-lg lg:grid-cols-12" id="projects-grid">
+<!--projects:start-->
+<article class="project-item pc panel group overflow-hidden shadow-lg transition-all duration-300 lg:col-span-12 hover:shadow-[0_12px_48px_-12px_rgba(124,58,237,0.35)]" data-reveal style="--d:0ms" data-project="deraclas-hub" data-layout="wide" data-featured="true"><div class="pc-media" data-fallback="PRJ.001"><img class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTuDZsZN4QWnicYoIZm0QdWkf5eAaDqVqD0B61JdrmF8jnhX5HgURZZpN3jf3l3Suv9z7ILGTpsCTVt43NlxUa8BNnC4tOk3D9M1ke6zi1JYANgRoqAC4Qz6HkzZvP1v1r2JsOBcznVT4Univwfc44zhdvAV30sgB2kXwdJwQe2r0h4FHwW9fcLVoo3eNd9iBpAgmRO-oXch5sMcVvdTGG_FLvDupvo5380GtwcOec" alt="Illustration of a dark community dashboard with purple neon data lines" loading="lazy" decoding="async"><div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/25 to-transparent" aria-hidden="true"></div><div class="absolute left-space-md top-space-md flex max-w-[calc(100%-2rem)] items-center gap-space-xs rounded-pill bg-surface-container-lowest/90 px-space-sm py-1 shadow-md backdrop-blur-md"><span class="h-2 w-2 flex-none animate-pulse rounded-full bg-secondary" aria-hidden="true"></span><span class="truncate font-label-caps text-label-caps uppercase text-secondary">Flagship Release</span></div><div class="absolute bottom-space-md left-space-md flex items-center gap-1.5 rounded bg-surface-container-lowest/90 px-space-sm py-1 font-label-tech text-label-tech text-on-surface-variant backdrop-blur"><svg class="icon h-3.5 w-3.5" aria-hidden="true"><use href="#i-layers"/></svg><span>NODE // DERACLAS-HUB</span></div></div><div class="pc-body"><div class="flex flex-col gap-space-md"><div class="flex items-center justify-between gap-space-sm"><span class="font-label-caps text-label-caps text-tertiary">PRJ. 001 // SYSTEM PLATFORM</span><span class="font-label-tech text-label-tech text-outline">Deraclas</span></div><h3 class="font-headline-md-mobile text-headline-md-mobile sm:font-headline-md sm:text-headline-md text-on-surface transition-colors group-hover:text-primary">Deraclas Community Hub</h3><p class="font-body-md text-body-md text-on-surface-variant">The centralized nexus for developers, designers, and creative technologist guilds. Features unified authentication, real-time telemetry, collaborative repository showcases, and a streamlined event broadcast matrix.</p><ul class="flex flex-wrap gap-1.5 pt-space-xs"><li class="chip">React 18</li><li class="chip">Tailwind CSS</li><li class="chip">Supabase DB</li><li class="chip">Node.js Engine</li><li class="chip bg-surface-container-high text-secondary">WebSocket Live</li></ul></div><div class="flex flex-col gap-space-sm pt-space-sm sm:flex-row sm:flex-wrap sm:items-center"><button type="button" class="btn btn-tonal needs-js shadow-lg sm:flex-1" data-action="inspect" data-id="deraclas-hub" aria-haspopup="dialog" aria-label="Inspect spec: Deraclas Community Hub"><svg class="icon h-[18px] w-[18px]" aria-hidden="true"><use href="#i-eye"/></svg><span>Inspect Spec</span></button><a class="btn btn-ghost shadow-sm" href="https://github.com/nawwtech" target="_blank" rel="noopener noreferrer" aria-label="Deraclas Community Hub on GitHub (opens in a new tab)"><svg class="icon h-[18px] w-[18px]" aria-hidden="true"><use href="#i-code"/></svg><span>GitHub</span></a><span class="inline-flex min-h-[44px] items-center gap-space-xs px-space-xs font-label-tech text-label-tech text-outline"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-link"/></svg><span>No public demo</span></span></div></div></article>
+<article class="project-item pc panel group overflow-hidden shadow-lg transition-all duration-300 lg:col-span-7 hover:shadow-[0_8px_32px_-8px_rgba(76,215,246,0.25)]" data-reveal style="--d:70ms" data-project="cybernetic-audio-engine" data-layout="stack" data-featured="false"><div class="pc-media" data-fallback="PRJ.002"><img class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiwOOdiapEvRqQO3EEBizFPPDgivNcw8HLYUbZibpBVsZvbC1d65mpJhUNjzVtINwpRb2hTTm9w4WEwVfrWinSa0rgkFk65hWTFKrH1KmAMH9-kIZuU7onf9SXsIXV70qlg5OzWto8YauUCabFW_oX9tfjCc3PcKttkxF6JohJ8wfICWnzOOfobgAbRwjRYGzn-7AsWeRpunc8iUrSPsHGOZW1kVEG3z-vPXw2siNS" alt="Illustration of a neon cyan and violet audio spectrum visualizer on a dark floor" loading="lazy" decoding="async"><div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/25 to-transparent" aria-hidden="true"></div><div class="absolute left-space-md top-space-md flex max-w-[calc(100%-2rem)] items-center gap-space-xs rounded-pill bg-surface-container-lowest/90 px-space-sm py-1 shadow-md backdrop-blur-md"><span class="truncate font-label-caps text-label-caps uppercase text-secondary">AUDIO // GLSL EXPERIMENT</span></div><div class="absolute bottom-space-md right-space-md flex items-center gap-1.5 rounded bg-surface-container-lowest/90 px-space-sm py-1 font-label-tech text-label-tech text-on-surface-variant backdrop-blur"><span class="h-2 w-2 animate-pulse rounded-full bg-secondary" aria-hidden="true"></span><span>REALTIME CANVAS</span></div></div><div class="pc-body"><div class="flex flex-col gap-space-md"><div class="flex items-center justify-between gap-space-sm"><span class="font-label-caps text-label-caps text-outline">PRJ. 002 // SOUND MATRIX</span><span class="font-label-tech text-label-tech text-primary">Web Audio API</span></div><h3 class="font-headline-sm text-headline-sm text-on-surface transition-colors group-hover:text-secondary">Cybernetic Audio Engine</h3><p class="font-body-md text-body-md text-on-surface-variant">Low-latency sound synthesis and procedural spectral visualization engine. Translates micro-frequencies into responsive vector orbitals using WebGL custom fragment shaders.</p><ul class="flex flex-wrap gap-1.5 pt-space-xs"><li class="chip">Next.js</li><li class="chip">GLSL Canvas</li><li class="chip">Tone.js</li></ul></div><div class="flex flex-col gap-space-sm pt-space-sm sm:flex-row sm:flex-wrap sm:items-center"><button type="button" class="btn btn-tonal needs-js shadow-lg sm:flex-1" data-action="inspect" data-id="cybernetic-audio-engine" aria-haspopup="dialog" aria-label="Inspect spec: Cybernetic Audio Engine"><svg class="icon h-[18px] w-[18px]" aria-hidden="true"><use href="#i-eye"/></svg><span>Inspect Spec</span></button><a class="btn btn-ghost shadow-sm" href="https://github.com/nawwtech" target="_blank" rel="noopener noreferrer" aria-label="Cybernetic Audio Engine on GitHub (opens in a new tab)"><svg class="icon h-[18px] w-[18px]" aria-hidden="true"><use href="#i-code"/></svg><span>GitHub</span></a><span class="inline-flex min-h-[44px] items-center gap-space-xs px-space-xs font-label-tech text-label-tech text-outline"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-link"/></svg><span>No public demo</span></span></div></div></article>
+<article class="project-item pc panel group overflow-hidden shadow-lg transition-all duration-300 lg:col-span-5 hover:shadow-[0_8px_32px_-8px_rgba(208,188,255,0.25)]" data-reveal style="--d:140ms" data-project="kuro-portfolio-iterations" data-layout="stack" data-featured="false"><div class="pc-media" data-fallback="PRJ.003"><img class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm5T7PLfIw3yqcC8IxPPQbn1tHaWcBYc_FQHQjTwxywKsT7gZWJLMrHidrDvhSmH1QHqfvUQYJNKFYGEbhIhpd7cLQc3XrSUBUqqHWZ7gKAcFxoXERH5anMe6UGVD8dSxumMMdRlSQXNVI-d2Of7uhrbzplwvCv5atG5antKqaRAx6ohk0lRxULnyQdKG3-89UoyC2uYmIX0A7szke524K-dGemh_iFho2VUzN2yrU" alt="Illustration of a minimalist dark interface with glowing violet cursor trails and a coordinate HUD" loading="lazy" decoding="async"><div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/25 to-transparent" aria-hidden="true"></div><div class="absolute left-space-md top-space-md flex max-w-[calc(100%-2rem)] items-center gap-space-xs rounded-pill bg-surface-container-lowest/90 px-space-sm py-1 shadow-md backdrop-blur-md"><span class="truncate font-label-caps text-label-caps uppercase text-primary">REPRESENTATIONAL HUD</span></div></div><div class="pc-body"><div class="flex flex-col gap-space-md"><div class="flex items-center justify-between gap-space-sm"><span class="font-label-caps text-label-caps text-outline">PRJ. 003 // IDENTITY</span><span class="font-label-tech text-label-tech text-tertiary">v1.0 &amp; v2.6</span></div><h3 class="font-headline-sm text-headline-sm text-on-surface transition-colors group-hover:text-primary">KURO Portfolio Iterations</h3><p class="font-body-md text-body-md text-on-surface-variant">Generative personal interface exploring aerospace telemetry, magnetic cursor interactions, and responsive modular micro-grids with dark cosmic typography.</p><ul class="flex flex-wrap gap-1.5 pt-space-xs"><li class="chip">Vite</li><li class="chip">Tailwind</li></ul></div><div class="flex flex-col gap-space-sm pt-space-sm sm:flex-row sm:flex-wrap sm:items-center"><button type="button" class="btn btn-tonal needs-js shadow-lg sm:flex-1" data-action="inspect" data-id="kuro-portfolio-iterations" aria-haspopup="dialog" aria-label="Inspect spec: KURO Portfolio Iterations"><svg class="icon h-[18px] w-[18px]" aria-hidden="true"><use href="#i-eye"/></svg><span>Inspect Spec</span></button><a class="btn btn-ghost shadow-sm" href="https://github.com/nawwtech" target="_blank" rel="noopener noreferrer" aria-label="KURO Portfolio Iterations on GitHub (opens in a new tab)"><svg class="icon h-[18px] w-[18px]" aria-hidden="true"><use href="#i-code"/></svg><span>GitHub</span></a><span class="inline-flex min-h-[44px] items-center gap-space-xs px-space-xs font-label-tech text-label-tech text-outline"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-link"/></svg><span>No public demo</span></span></div></div></article>
+<article class="project-item pc panel group overflow-hidden shadow-lg transition-all duration-300 lg:col-span-6 hover:shadow-[0_8px_32px_-8px_rgba(160,120,255,0.25)]" data-reveal style="--d:210ms" data-project="anime-manga-tracker" data-layout="stack" data-featured="false"><div class="pc-media" data-fallback="PRJ.004"><img class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvzkjfrX5idZVQrPC0VYsZTpUMCQ4DnPgBl5hwaPTzSw5t8FL9yeZgH1i1hWylA4849pnXOeI1lfFEmjtYFzb7tLL936h-fctvJTuBFOSV8HuS7FwyYP8MRIiZadDzDVsakk20JLqLvNgs6CqsJ4NSeuC5-D_U3bjqyEguLQaLOYl1ThmSmch2ultW6vXm3I-lLSlXh_2tHuHXosZdBmdT6uedPL1levqlxefT4rcL" alt="Illustration of a dark anime catalog interface with cyan and magenta backlit cards" loading="lazy" decoding="async"><div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/25 to-transparent" aria-hidden="true"></div><div class="absolute left-space-md top-space-md flex max-w-[calc(100%-2rem)] items-center gap-space-xs rounded-pill bg-surface-container-lowest/90 px-space-sm py-1 shadow-md backdrop-blur-md"><span class="truncate font-label-caps text-label-caps uppercase text-secondary">MEDIA CLIENT</span></div></div><div class="pc-body"><div class="flex flex-col gap-space-md"><div class="flex items-center justify-between gap-space-sm"><span class="font-label-caps text-label-caps text-outline">PRJ. 004 // CATALOG</span><span class="font-label-tech text-label-tech text-outline">GraphQL API</span></div><h3 class="font-headline-sm text-headline-sm text-on-surface transition-colors group-hover:text-primary">Anime &amp; Manga Tracker Suite</h3><p class="font-body-md text-body-md text-on-surface-variant">Real-time media discovery engine with debounced fuzzy search, custom progress journals, dynamic episode notifications, and personalized watchlist synchronization.</p><ul class="flex flex-wrap gap-1.5 pt-space-xs"><li class="chip">React</li><li class="chip">Anilist API</li><li class="chip">IndexedDB</li></ul></div><div class="flex flex-col gap-space-sm pt-space-sm sm:flex-row sm:flex-wrap sm:items-center"><button type="button" class="btn btn-tonal needs-js shadow-lg sm:flex-1" data-action="inspect" data-id="anime-manga-tracker" aria-haspopup="dialog" aria-label="Inspect spec: Anime &amp; Manga Tracker Suite"><svg class="icon h-[18px] w-[18px]" aria-hidden="true"><use href="#i-eye"/></svg><span>Inspect Spec</span></button><a class="btn btn-ghost shadow-sm" href="https://github.com/nawwtech" target="_blank" rel="noopener noreferrer" aria-label="Anime &amp; Manga Tracker Suite on GitHub (opens in a new tab)"><svg class="icon h-[18px] w-[18px]" aria-hidden="true"><use href="#i-code"/></svg><span>GitHub</span></a><span class="inline-flex min-h-[44px] items-center gap-space-xs px-space-xs font-label-tech text-label-tech text-outline"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-link"/></svg><span>No public demo</span></span></div></div></article>
+<article class="project-item pc panel group overflow-hidden shadow-lg transition-all duration-300 lg:col-span-6 hover:shadow-[0_8px_32px_-8px_rgba(76,215,246,0.25)]" data-reveal style="--d:280ms" data-project="deraclas-bot-suite" data-layout="stack" data-featured="false"><div class="pc-media" data-fallback="PRJ.005"><img class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGYXv2VmQIUy4MW-olNnhXFGVrWB-6Pijv1qS68-muyT-0hRfdnnDptvXuaCBYWulTirmos0BWVwph8enHIvZ6_MxabxxaOTaznmF5SLDSx6XeVG96Mj98B9uWADz4ieJ4EzIHxQNbbrOMqwx_rput60H3KuAxfrCH9SqjBVbGBRbjI-MoWZCzYgPCgWwm1fTciehAqUz14GMl71FOsz7Bh-BLELJmgNjoSKmp_cg1" alt="Illustration of a bot admin console with a server status graph and violet terminal logs" loading="lazy" decoding="async"><div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/25 to-transparent" aria-hidden="true"></div><div class="absolute left-space-md top-space-md flex max-w-[calc(100%-2rem)] items-center gap-space-xs rounded-pill bg-surface-container-lowest/90 px-space-sm py-1 shadow-md backdrop-blur-md"><span class="truncate font-label-caps text-label-caps uppercase text-tertiary">AUTOMATION NODE</span></div></div><div class="pc-body"><div class="flex flex-col gap-space-md"><div class="flex items-center justify-between gap-space-sm"><span class="font-label-caps text-label-caps text-outline">PRJ. 005 // BACKEND BOT</span><span class="font-label-tech text-label-tech text-secondary">Discord.js v14</span></div><h3 class="font-headline-sm text-headline-sm text-on-surface transition-colors group-hover:text-secondary">Deraclas Automated Bot Suite</h3><p class="font-body-md text-body-md text-on-surface-variant">Multi-purpose bot infrastructure for community guilds, with algorithmic moderation, dynamic voice channels, web player streams, and custom role gamification.</p><ul class="flex flex-wrap gap-1.5 pt-space-xs"><li class="chip">Node.js</li><li class="chip">Redis</li><li class="chip">Lavalink</li></ul></div><div class="flex flex-col gap-space-sm pt-space-sm sm:flex-row sm:flex-wrap sm:items-center"><button type="button" class="btn btn-tonal needs-js shadow-lg sm:flex-1" data-action="inspect" data-id="deraclas-bot-suite" aria-haspopup="dialog" aria-label="Inspect spec: Deraclas Automated Bot Suite"><svg class="icon h-[18px] w-[18px]" aria-hidden="true"><use href="#i-eye"/></svg><span>Inspect Spec</span></button><a class="btn btn-ghost shadow-sm" href="https://github.com/nawwtech" target="_blank" rel="noopener noreferrer" aria-label="Deraclas Automated Bot Suite on GitHub (opens in a new tab)"><svg class="icon h-[18px] w-[18px]" aria-hidden="true"><use href="#i-code"/></svg><span>GitHub</span></a><span class="inline-flex min-h-[44px] items-center gap-space-xs px-space-xs font-label-tech text-label-tech text-outline"><svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-link"/></svg><span>No public demo</span></span></div></div></article>
+<!--projects:end-->
+      </div>
+
+      <div class="flex flex-col items-start justify-between gap-space-lg rounded-xl bg-surface-container-lowest p-space-lg shadow-md ring-1 ring-outline-variant/[var(--ring-a)] md:flex-row md:items-center lg:p-space-xl" data-reveal>
+        <div class="flex items-center gap-space-md">
+          <span class="flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-surface-container-high text-primary"><svg class="icon h-7 w-7" aria-hidden="true"><use href="#i-terminal"/></svg></span>
+          <div class="flex flex-col">
+            <h3 class="font-headline-sm text-headline-sm text-on-surface" data-i18n="cta.title">Need a Bespoke Architecture?</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant" data-i18n="cta.text">Open to projects involving interactive frontend interfaces, WebGL visualizers and web platforms.</p>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-primary w-full shadow-md md:w-auto">
+          <span data-i18n="cta.button">Initialize Comms</span>
+          <svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ SOCIALS -->
+  <section id="socials" aria-labelledby="socials-title" class="relative py-space-xl lg:py-24">
+    <div class="wrap flex flex-col gap-space-xl">
+      <div class="flex max-w-2xl flex-col gap-space-md" data-reveal>
+        <span class="kicker" data-i18n="socials.kicker">05 // SOCIALS</span>
+        <h2 id="socials-title" class="section-title" data-i18n="socials.title">Find me around the web</h2>
+        <p class="lead" data-i18n="socials.lead">Follow the work, say hi, or see what I'm experimenting with.</p>
+      </div>
+      <ul class="grid gap-space-md sm:grid-cols-2 lg:grid-cols-4">
+        <li data-reveal>
+          <a class="social-card group panel flex h-full flex-col gap-space-md p-space-lg shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_-12px_var(--glow-soft)]" href="https://github.com/nawwtech" target="_blank" rel="noopener noreferrer">
+            <span class="flex items-center justify-between">
+              <span class="flex h-12 w-12 items-center justify-center rounded-lg bg-surface-container-high text-primary"><svg class="icon h-6 w-6" aria-hidden="true"><use href="#i-github"/></svg></span>
+              <svg class="icon h-5 w-5 text-outline transition-colors group-hover:text-secondary" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
+            </span>
+            <span class="flex flex-col gap-1">
+              <span class="font-headline-sm text-headline-sm text-on-surface">GitHub</span>
+              <span class="font-label-tech text-label-tech text-secondary">@nawwtech</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant" data-i18n="socials.github.d">Code and repositories</span>
+            </span>
+            <span class="sr-only" data-i18n="a11y.newtab">(opens in a new tab)</span>
+          </a>
+        </li>
+        <li data-reveal style="--d:70ms">
+          <a class="social-card group panel flex h-full flex-col gap-space-md p-space-lg shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_-12px_var(--glow-soft)]" href="https://www.tiktok.com/@rainoneday" target="_blank" rel="noopener noreferrer">
+            <span class="flex items-center justify-between">
+              <span class="flex h-12 w-12 items-center justify-center rounded-lg bg-surface-container-high text-secondary"><svg class="icon h-6 w-6" aria-hidden="true"><use href="#i-tiktok"/></svg></span>
+              <svg class="icon h-5 w-5 text-outline transition-colors group-hover:text-secondary" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
+            </span>
+            <span class="flex flex-col gap-1">
+              <span class="font-headline-sm text-headline-sm text-on-surface">TikTok</span>
+              <span class="font-label-tech text-label-tech text-secondary">@rainoneday</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant" data-i18n="socials.tiktok.d">Videos</span>
+            </span>
+            <span class="sr-only" data-i18n="a11y.newtab">(opens in a new tab)</span>
+          </a>
+        </li>
+        <li data-reveal style="--d:140ms">
+          <a class="social-card group panel flex h-full flex-col gap-space-md p-space-lg shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_-12px_var(--glow-soft)]" href="https://www.instagram.com/rainonedayy" target="_blank" rel="noopener noreferrer">
+            <span class="flex items-center justify-between">
+              <span class="flex h-12 w-12 items-center justify-center rounded-lg bg-surface-container-high text-tertiary"><svg class="icon h-6 w-6" aria-hidden="true"><use href="#i-instagram"/></svg></span>
+              <svg class="icon h-5 w-5 text-outline transition-colors group-hover:text-secondary" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
+            </span>
+            <span class="flex flex-col gap-1">
+              <span class="font-headline-sm text-headline-sm text-on-surface">Instagram</span>
+              <span class="font-label-tech text-label-tech text-secondary">@rainonedayy</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant" data-i18n="socials.instagram.d">Photos and updates</span>
+            </span>
+            <span class="sr-only" data-i18n="a11y.newtab">(opens in a new tab)</span>
+          </a>
+        </li>
+        <li data-reveal style="--d:210ms">
+          <a class="social-card group panel flex h-full flex-col gap-space-md p-space-lg shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_-12px_var(--glow-soft)]" href="https://t.me/kuroz4ph" target="_blank" rel="noopener noreferrer">
+            <span class="flex items-center justify-between">
+              <span class="flex h-12 w-12 items-center justify-center rounded-lg bg-surface-container-high text-primary"><svg class="icon h-6 w-6" aria-hidden="true"><use href="#i-telegram"/></svg></span>
+              <svg class="icon h-5 w-5 text-outline transition-colors group-hover:text-secondary" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
+            </span>
+            <span class="flex flex-col gap-1">
+              <span class="font-headline-sm text-headline-sm text-on-surface">Telegram</span>
+              <span class="font-label-tech text-label-tech text-secondary">@kuroz4ph</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant" data-i18n="socials.telegram.d">Chat directly</span>
+            </span>
+            <span class="sr-only" data-i18n="a11y.newtab">(opens in a new tab)</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================ CONTACT -->
+  <section id="contact" aria-labelledby="contact-title" class="relative py-space-xl lg:py-24">
+    <div class="wrap">
+      <div class="panel relative overflow-hidden p-space-lg shadow-xl sm:p-space-xl lg:p-16" data-reveal>
+        <div class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-pill bg-primary-container/20 blur-3xl" aria-hidden="true"></div>
+        <div class="relative grid gap-space-xl lg:grid-cols-12 lg:items-center">
+          <div class="flex flex-col gap-space-md lg:col-span-7">
+            <span class="kicker" data-i18n="contact.kicker">06 // CONTACT</span>
+            <h2 id="contact-title" class="section-title" data-i18n="contact.title">Let's build something together.</h2>
+            <p class="lead" data-i18n="contact.lead">Have an idea, a collaboration or a question? Send a message. Telegram is the easiest way to reach me right now.</p>
+            <p class="flex items-center gap-space-xs font-label-tech text-label-tech text-on-surface-variant">
+              <span class="h-2 w-2 animate-pulse rounded-full bg-secondary" aria-hidden="true"></span>
+              <span data-i18n="hdr.available">Available for Creative Frontend &amp; WebGL</span>
+            </p>
+          </div>
+          <div class="flex flex-col gap-space-sm lg:col-span-5" id="contact-actions">
+            <a href="https://t.me/kuroz4ph" target="_blank" rel="noopener noreferrer" class="btn btn-primary w-full py-3 shadow-lg">
+              <svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-telegram"/></svg>
+              <span data-i18n="contact.telegram">Message on Telegram</span>
+              <span class="sr-only" data-i18n="a11y.newtab">(opens in a new tab)</span>
+            </a>
+            <a href="https://github.com/nawwtech" target="_blank" rel="noopener noreferrer" class="btn btn-ghost w-full py-3">
+              <svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-github"/></svg>
+              <span data-i18n="contact.github">Browse my GitHub</span>
+              <span class="sr-only" data-i18n="a11y.newtab">(opens in a new tab)</span>
+            </a>
+            <!-- An e-mail button is added here automatically when `email` is set in js/core.js. -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================================================================ FOOTER -->
+<footer id="site-footer" class="w-full bg-surface-container-lowest pb-32 pt-space-xl">
+  <div class="wrap grid gap-space-xl md:grid-cols-12">
+    <div class="flex flex-col gap-space-sm md:col-span-5">
+      <a href="#home" class="flex w-fit items-center gap-space-sm rounded">
+        <img src="assets/icons/logo.svg" alt="" width="32" height="32" class="h-8 w-8">
+        <span class="font-label-tech text-label-tech uppercase tracking-wider text-on-surface">KUROZ4PH</span>
+      </a>
+      <p class="max-w-sm font-body-sm text-body-sm text-on-surface-variant" data-i18n="footer.tagline">Cinematic frontend experiments by Muhammad Nawal Fajar Riyadi.</p>
+    </div>
+    <nav class="md:col-span-4" aria-label="Sections" data-i18n-attr="aria-label:footer.nav">
+      <ul class="grid grid-cols-2 gap-x-space-md gap-y-1">
+        <li><a class="inline-flex min-h-[40px] items-center font-label-tech text-label-tech text-on-surface-variant transition-colors hover:text-on-surface" href="#home" data-i18n="nav.home">Home</a></li>
+        <li><a class="inline-flex min-h-[40px] items-center font-label-tech text-label-tech text-on-surface-variant transition-colors hover:text-on-surface" href="#about" data-i18n="nav.about">About</a></li>
+        <li><a class="inline-flex min-h-[40px] items-center font-label-tech text-label-tech text-on-surface-variant transition-colors hover:text-on-surface" href="#skills" data-i18n="nav.skills">Skills</a></li>
+        <li><a class="inline-flex min-h-[40px] items-center font-label-tech text-label-tech text-on-surface-variant transition-colors hover:text-on-surface" href="#projects" data-i18n="nav.projects">Projects</a></li>
+        <li><a class="inline-flex min-h-[40px] items-center font-label-tech text-label-tech text-on-surface-variant transition-colors hover:text-on-surface" href="#socials" data-i18n="nav.socials">Socials</a></li>
+        <li><a class="inline-flex min-h-[40px] items-center font-label-tech text-label-tech text-on-surface-variant transition-colors hover:text-on-surface" href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="md:col-span-3">
+      <ul class="flex items-center gap-space-sm md:justify-end" aria-label="Social links" data-i18n-attr="aria-label:footer.social">
+        <li><a class="icon-btn h-11 w-11" href="https://github.com/nawwtech" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in a new tab)" data-i18n-attr="aria-label:footer.l.github"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-github"/></svg></a></li>
+        <li><a class="icon-btn h-11 w-11" href="https://www.tiktok.com/@rainoneday" target="_blank" rel="noopener noreferrer" aria-label="TikTok (opens in a new tab)" data-i18n-attr="aria-label:footer.l.tiktok"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-tiktok"/></svg></a></li>
+        <li><a class="icon-btn h-11 w-11" href="https://www.instagram.com/rainonedayy" target="_blank" rel="noopener noreferrer" aria-label="Instagram (opens in a new tab)" data-i18n-attr="aria-label:footer.l.instagram"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
+        <li><a class="icon-btn h-11 w-11" href="https://t.me/kuroz4ph" target="_blank" rel="noopener noreferrer" aria-label="Telegram (opens in a new tab)" data-i18n-attr="aria-label:footer.l.telegram"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-telegram"/></svg></a></li>
+      </ul>
+    </div>
+    <div class="flex flex-col gap-space-sm border-t border-outline-variant/40 pt-space-md md:col-span-12 md:flex-row md:items-center md:justify-between">
+      <p class="font-label-caps text-label-caps uppercase text-outline"><span data-i18n="footer.rights">© 2026 Muhammad Nawal Fajar Riyadi.</span> <span data-i18n="footer.built">Built with HTML, Tailwind CSS and vanilla JavaScript.</span></p>
+      <a href="#home" class="inline-flex min-h-[40px] items-center gap-space-xs font-label-tech text-label-tech text-on-surface-variant transition-colors hover:text-on-surface">
+        <svg class="icon h-4 w-4" aria-hidden="true"><use href="#i-chevron-up"/></svg>
+        <span data-i18n="footer.top">Back to top</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<canvas id="bg-stars" aria-hidden="true"></canvas>
+
+<!-- ================================================================ FLOATING NAV -->
+<nav id="floating-nav" aria-label="Primary" data-i18n-attr="aria-label:nav.label">
+  <div class="nav-track">
+    <span class="nav-indicator" id="nav-indicator" aria-hidden="true"></span>
+    <ul class="nav-list" id="nav-list">
+      <li><a class="nav-link" href="#home" data-section="home"><svg class="icon h-5 w-5 sm:hidden" aria-hidden="true"><use href="#i-home"/></svg><span class="hidden opacity-70 md:inline" aria-hidden="true">01.</span><span class="sr-only sm:not-sr-only" data-i18n="nav.home">Home</span></a></li>
+      <li><a class="nav-link" href="#about" data-section="about"><svg class="icon h-5 w-5 sm:hidden" aria-hidden="true"><use href="#i-user"/></svg><span class="hidden opacity-70 md:inline" aria-hidden="true">02.</span><span class="sr-only sm:not-sr-only" data-i18n="nav.about">About</span></a></li>
+      <li><a class="nav-link" href="#skills" data-section="skills"><svg class="icon h-5 w-5 sm:hidden" aria-hidden="true"><use href="#i-skills"/></svg><span class="hidden opacity-70 md:inline" aria-hidden="true">03.</span><span class="sr-only sm:not-sr-only" data-i18n="nav.skills">Skills</span></a></li>
+      <li><a class="nav-link" href="#projects" data-section="projects"><svg class="icon h-5 w-5 sm:hidden" aria-hidden="true"><use href="#i-projects"/></svg><span class="hidden opacity-70 md:inline" aria-hidden="true">04.</span><span class="sr-only sm:not-sr-only" data-i18n="nav.projects">Projects</span></a></li>
+      <li><a class="nav-link" href="#socials" data-section="socials"><svg class="icon h-5 w-5 sm:hidden" aria-hidden="true"><use href="#i-group"/></svg><span class="hidden opacity-70 md:inline" aria-hidden="true">05.</span><span class="sr-only sm:not-sr-only" data-i18n="nav.socials">Socials</span></a></li>
+      <li><a class="nav-link" href="#contact" data-section="contact"><svg class="icon h-5 w-5 sm:hidden" aria-hidden="true"><use href="#i-message"/></svg><span class="hidden opacity-70 md:inline" aria-hidden="true">06.</span><span class="sr-only sm:not-sr-only" data-i18n="nav.contact">Contact</span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ================================================================ AUDIO PLAYER (needs JS) -->
+<aside id="audio" aria-label="Audio player" data-i18n-attr="aria-label:audio.region" data-state="loading" data-collapsed="true" class="needs-js">
+  <button type="button" class="audio-fab relative flex h-12 w-12 items-center justify-center rounded-pill bg-surface-container-low text-secondary transition-colors hover:bg-surface-container-high" id="audio-fab" aria-expanded="false" aria-controls="audio-panel" aria-label="Open audio player" data-i18n-attr="aria-label:audio.open">
+    <svg class="icon h-6 w-6" aria-hidden="true"><use id="audio-fab-icon" href="#i-music"/></svg>
+    <span class="audio-dot" aria-hidden="true"></span>
+  </button>
+  <div class="audio-panel flex flex-col gap-space-xs rounded-xl p-space-md backdrop-blur-xl" id="audio-panel" role="group" aria-label="Audio player" data-i18n-attr="aria-label:audio.region">
+    <div class="flex items-center justify-between gap-space-sm">
+      <div class="flex min-w-0 items-center gap-space-xs">
+        <svg class="icon h-[18px] w-[18px] flex-none text-secondary" aria-hidden="true"><use href="#i-music"/></svg>
+        <span class="truncate font-label-caps text-label-caps uppercase text-primary" data-i18n="audio.title">Audio Telemetry</span>
+      </div>
+      <div class="flex items-center gap-1">
+        <span class="font-label-caps text-label-caps uppercase text-on-surface-variant" id="audio-state" aria-hidden="true">Loading</span>
+        <button type="button" class="icon-btn h-8 w-8 bg-transparent" id="audio-collapse" aria-label="Collapse audio player" data-i18n-attr="aria-label:audio.collapse"><svg class="icon h-[18px] w-[18px]" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
+      </div>
+    </div>
+    <div class="min-w-0">
+      <div class="truncate font-body-sm text-body-sm text-on-surface" id="audio-title">—</div>
+      <div class="truncate font-label-tech text-label-tech text-outline" id="audio-sub"></div>
+    </div>
+    <div class="flex h-8 items-end justify-between gap-1 rounded bg-surface-container-lowest/80 px-1 py-1" id="audio-bars" aria-hidden="true">
+      <span class="w-1 flex-1 rounded-pill bg-primary" style="height:12%"></span><span class="w-1 flex-1 rounded-pill bg-secondary" style="height:12%"></span><span class="w-1 flex-1 rounded-pill bg-tertiary" style="height:12%"></span><span class="w-1 flex-1 rounded-pill bg-primary" style="height:12%"></span><span class="w-1 flex-1 rounded-pill bg-secondary" style="height:12%"></span><span class="w-1 flex-1 rounded-pill bg-primary" style="height:12%"></span><span class="w-1 flex-1 rounded-pill bg-tertiary" style="height:12%"></span><span class="w-1 flex-1 rounded-pill bg-secondary" style="height:12%"></span><span class="w-1 flex-1 rounded-pill bg-primary" style="height:12%"></span><span class="w-1 flex-1 rounded-pill bg-secondary" style="height:12%"></span>
+    </div>
+    <div class="flex items-center gap-space-xs">
+      <span class="w-9 text-right font-label-tech text-label-tech tabular-nums text-on-surface-variant" id="audio-cur">0:00</span>
+      <input type="range" class="range" id="audio-seek" min="0" max="1000" step="1" value="0" disabled aria-label="Seek" data-i18n-attr="aria-label:audio.seek">
+      <span class="w-9 font-label-tech text-label-tech tabular-nums text-on-surface-variant" id="audio-dur">0:00</span>
+    </div>
+    <div class="flex items-center justify-between gap-space-sm">
+      <div class="flex items-center gap-1">
+        <button type="button" class="icon-btn h-10 w-10 bg-transparent" id="audio-prev" aria-label="Previous track" data-i18n-attr="aria-label:audio.prev"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-prev"/></svg></button>
+        <button type="button" class="flex h-10 w-10 items-center justify-center rounded-pill bg-primary-container text-on-primary-container transition-colors hover:bg-primary hover:text-on-primary disabled:opacity-40" id="audio-play" aria-label="Play" data-i18n-attr="aria-label:audio.play"><svg class="icon h-5 w-5" aria-hidden="true"><use id="audio-play-icon" href="#i-play"/></svg></button>
+        <button type="button" class="icon-btn h-10 w-10 bg-transparent" id="audio-next" aria-label="Next track" data-i18n-attr="aria-label:audio.next"><svg class="icon h-5 w-5" aria-hidden="true"><use href="#i-next"/></svg></button>
+      </div>
+      <div class="flex min-w-0 flex-1 items-center gap-1">
+        <button type="button" class="icon-btn h-10 w-10 flex-none bg-transparent" id="audio-mute" aria-label="Mute" data-i18n-attr="aria-label:audio.mute"><svg class="icon h-5 w-5" aria-hidden="true"><use id="audio-mute-icon" href="#i-volume"/></svg></button>
+        <input type="range" class="range" id="audio-volume" min="0" max="100" step="1" value="70" aria-label="Volume" data-i18n-attr="aria-label:audio.volume">
+      </div>
+    </div>
+    <p class="font-label-tech text-label-tech text-on-surface-variant" id="audio-message" hidden></p>
+    <p class="sr-only" role="status" aria-live="polite" id="audio-live"></p>
+  </div>
+</aside>
+
+<!-- ================================================================ PROJECT MODAL -->
+<div id="project-modal" class="overlay" hidden>
+  <div id="project-dialog" class="overlay-panel relative flex max-h-[calc(100dvh-1rem)] w-full max-w-4xl flex-col gap-space-lg overflow-y-auto rounded-xl bg-surface-container-low p-space-md sm:max-h-[calc(100dvh-2rem)] sm:p-space-lg lg:p-space-xl" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc" tabindex="-1"></div>
+</div>
+
+<!-- ================================================================ COMMAND PALETTE -->
+<div id="palette" class="overlay" hidden>
+  <div id="palette-dialog" class="overlay-panel flex max-h-[min(30rem,calc(100dvh-6rem))] w-full max-w-xl flex-col overflow-hidden rounded-xl bg-surface-container-low" role="dialog" aria-modal="true" aria-label="Command palette" data-i18n-attr="aria-label:pal.title" tabindex="-1">
+    <div class="flex items-center gap-space-sm border-b border-outline-variant/50 px-space-md">
+      <svg class="icon h-5 w-5 flex-none text-outline" aria-hidden="true"><use href="#i-search"/></svg>
+      <input id="palette-input" type="text" role="combobox" aria-expanded="true" aria-controls="palette-list" aria-autocomplete="list" aria-activedescendant="" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="go" placeholder="Type a command or search…" aria-label="Command search" data-i18n-attr="placeholder:pal.placeholder;aria-label:pal.search" class="h-14 min-w-0 flex-1 bg-transparent font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none">
+      <kbd class="kbd">Esc</kbd>
+    </div>
+    <ul id="palette-list" role="listbox" aria-label="Commands" class="min-h-0 flex-1 overflow-y-auto p-space-xs" data-i18n-attr="aria-label:pal.list"></ul>
+    <p id="palette-empty" class="px-space-md py-space-lg text-center font-body-md text-body-md text-on-surface-variant" hidden data-i18n="pal.empty">No matching commands</p>
+    <div class="flex flex-wrap items-center gap-x-space-md gap-y-1 border-t border-outline-variant/50 px-space-md py-space-sm font-label-tech text-label-tech text-outline" aria-hidden="true">
+      <span class="flex items-center gap-1"><kbd class="kbd">↑</kbd><kbd class="kbd">↓</kbd><span data-i18n="pal.hint.nav">navigate</span></span>
+      <span class="flex items-center gap-1"><kbd class="kbd">↵</kbd><span data-i18n="pal.hint.select">select</span></span>
+      <span class="flex items-center gap-1"><kbd class="kbd">Esc</kbd><span data-i18n="pal.hint.close">close</span></span>
+    </div>
+    <p class="sr-only" role="status" aria-live="polite" id="palette-status"></p>
+  </div>
+</div>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>
