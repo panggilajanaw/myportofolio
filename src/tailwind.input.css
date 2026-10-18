@@ -1,0 +1,75 @@
+/*
+ * Tailwind entry point. Compiled to css/tailwind.css by `npm run build:css`.
+ * Hand-written, non-utility CSS (theme tokens, intro, starfield, animations)
+ * lives in css/style.css and is loaded after the compiled file.
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    /* No body background: <html> carries the colour so the fixed starfield canvas (z-index -1) stays visible. */
+    @apply font-body-md text-body-md text-on-background antialiased;
+  }
+
+  /* Inline SVG icon sprite (see <symbol> list at the top of index.html). */
+  .icon {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    flex: none;
+  }
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-[1440px] px-margin-sm lg:px-margin-lg;
+  }
+
+  .kicker {
+    @apply font-label-caps text-label-caps uppercase tracking-widest text-secondary;
+  }
+
+  .section-title {
+    @apply font-headline-lg-mobile text-headline-lg-mobile text-on-surface md:font-headline-lg md:text-headline-lg;
+  }
+
+  .lead {
+    @apply font-body-lg text-body-lg text-on-surface-variant;
+  }
+
+  .btn {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-space-xs rounded-lg px-space-md py-space-sm font-label-tech text-label-tech uppercase transition-colors;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container;
+  }
+
+  .btn-tonal {
+    @apply bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary;
+  }
+
+  .btn-ghost {
+    @apply bg-surface-container-high text-on-surface hover:text-secondary;
+  }
+
+  .chip {
+    @apply rounded bg-surface-container px-space-sm py-0.5 font-label-caps text-label-caps uppercase text-on-surface;
+  }
+
+  /* Tonal panel. The ring is invisible in dark mode (Stitch's borderless look) and a soft hairline in light mode. */
+  .panel {
+    @apply rounded-xl bg-surface-container-low ring-1 ring-outline-variant/[var(--ring-a)];
+  }
+
+  .icon-btn {
+    @apply inline-flex h-9 w-9 items-center justify-center rounded bg-surface-container-high text-on-surface transition-colors hover:bg-surface-variant;
+  }
+}
